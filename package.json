@@ -1,0 +1,9 @@
+{
+  "name": "lumen-loom",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lumen & Loom — handwoven rugs, static site",
+  "scripts": {
+    "build": "echo \"Static site — no build step needed.\" && exit 0"
+  }
+}
