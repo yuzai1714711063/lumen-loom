@@ -15,6 +15,10 @@
   ready(init);
 
   function init() {
+    // Footer copyright year — keep it auto-synced with the current year
+    const yearEl = document.getElementById('copyrightYear');
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
     initLoader();
     initCursor();
     initNav();
