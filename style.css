@@ -575,8 +575,11 @@ body.nav-scrolled .topbar { display: none; }
   background: var(--bg-warm);
 }
 .featured-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 125%;          /* extra height = parallax buffer; prevents bottom gap */
   object-fit: cover;
   transition: transform 1.2s var(--ease);
   will-change: transform;
@@ -703,8 +706,11 @@ body.nav-scrolled .topbar { display: none; }
   position: relative;
 }
 .story-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 150%;          /* extra height = parallax buffer (max -27%) */
   object-fit: cover;
   transform: scale(1.15);
   will-change: transform;
@@ -1015,8 +1021,11 @@ body.nav-scrolled .topbar { display: none; }
   top: 120px;
 }
 .material-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 140%;          /* extra height = parallax buffer (max -24%) */
   object-fit: cover;
   transform: scale(1.15);
   will-change: transform;
@@ -1085,8 +1094,11 @@ body.nav-scrolled .topbar { display: none; }
   height: 640px;
 }
 .lifestyle-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 125%;          /* +100px range over 640px = 15.6% buffer + extra */
   object-fit: cover;
   transition: transform 1.4s var(--ease);
   will-change: transform;
