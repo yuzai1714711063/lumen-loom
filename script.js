@@ -774,18 +774,17 @@
         titleHTML: 'Every <em>floor,</em> in one place.',
         desc: 'Browse the full collection. Filter by style, size, fiber or lead time. Or just keep scrolling — every rug is hand-knotted, fair-trade, and shipped free worldwide.',
         meta: [['Total rugs', '88'], ['Materials', 'Wool · Linen · Hemp · Silk'], ['Shipping', 'Free over $500']],
-        products: [
-          { name: 'The Aria',           price: 1890, img: 'images/featured-1.jpg', rating: 5, reviews: 214, badge: 'NEW',         cat: 'Modern Minimal', size: "8'×10'" },
-          { name: 'The Maison',         price: 2640, img: 'images/featured-2.jpg', rating: 5, reviews: 508, badge: 'BESTSELLER',  cat: 'Heritage',      size: "9'×12'" },
-          { name: 'The Linen Field',    price: 1420, img: 'images/featured-3.jpg', rating: 5, reviews: 146, badge: 'LIMITED',     cat: 'Modern Minimal', size: "8'×10'" },
-          { name: 'The Hallway Runner', price: 420,  img: 'images/product-1.jpg',  rating: 5, reviews: 312, badge: '',            cat: 'Natural Fiber', size: "2'×6'" },
-          { name: 'The Aria Geometric', price: 980,  img: 'images/product-2.jpg',  rating: 5, reviews: 186, badge: '',            cat: 'Geometric',     size: "5'×8'" },
-          { name: 'The Natural Jute',   price: 640,  img: 'images/product-3.jpg',  rating: 5, reviews: 274, badge: '',            cat: 'Natural Fiber', size: "8'×10'" },
-          { name: 'The Spectrum',       price: 720,  img: 'images/product-4.jpg',  rating: 5, reviews: 98,  badge: 'BESTSELLER',  cat: 'Geometric',     size: "4'×6'" },
-          { name: 'The Estate',         price: 3240, img: 'images/hero.jpg',        rating: 5, reviews: 312, badge: '',            cat: 'Heritage',      size: "10'×14'" },
-        ],
+        products: [],   // populated below from the 4 sub-categories
       },
     };
+
+    // Aggregate 'all' from the 4 sub-categories (4 sub × 4 each = 16)
+    ['modern-minimal', 'heritage', 'natural-fiber', 'geometric'].forEach((slug) => {
+      CATEGORIES[slug].products.forEach((p) => {
+        CATEGORIES['all'].products.push({ ...p });
+      });
+    });
+    CATEGORIES['all'].total = CATEGORIES['all'].products.length;
 
     const container = document.getElementById('categoryPage');
     if (!container) return;
